@@ -1,0 +1,25 @@
+/* ==========================================
+   Rofi palette: {{name}}
+   GENERATED from theme/palettes — don't edit by hand.
+   ========================================== */
+
+* {
+    void:     {{void}};
+    base:     {{base}};
+    base-a:   {{base}}e6;
+    surface:  {{surface}};
+    overlay:  {{overlay}};
+
+    muted:    {{muted}};
+    subtle:   {{subtle}};
+    text:     {{text}};
+    bright:   {{bright}};
+
+    blue:     {{blue}};
+    violet:   {{violet}};
+    cyan:     {{cyan}};
+    rose:     {{rose}};
+}
+
+/* Search placeholder — rendered in the interface language */
+entry { placeholder: "{{t:search…|поиск…}}"; }

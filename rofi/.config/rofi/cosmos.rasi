@@ -1,0 +1,98 @@
+/* ==========================================
+   ROFI — the "quiet deep space" theme
+   Colors and placeholder: colors.rasi
+   ========================================== */
+
+@import "colors.rasi"
+
+* {
+    font:             "JetBrainsMono Nerd Font 11";
+    background-color: transparent;
+    text-color:       @text;
+}
+
+window {
+    width:            560px;
+    location:         center;
+    background-color: @base-a;
+    border:           1px;
+    border-color:     @overlay;
+    border-radius:    10px;
+    padding:          14px;
+}
+
+mainbox {
+    spacing:  10px;
+    children: [ inputbar, message, listview ];
+}
+
+inputbar {
+    padding:          10px 12px;
+    spacing:          10px;
+    background-color: @surface;
+    border-radius:    8px;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    text-color: @blue;
+}
+
+entry {
+    placeholder-color: @muted;
+    cursor:            text;
+}
+
+message {
+    padding:          6px 12px;
+    background-color: transparent;
+}
+
+textbox {
+    text-color: @subtle;
+}
+
+listview {
+    lines:        8;
+    columns:      1;
+    spacing:      4px;
+    fixed-height: false;
+    scrollbar:    false;
+    cycle:        true;
+}
+
+element {
+    padding:       8px 10px;
+    spacing:       12px;
+    border-radius: 6px;
+    cursor:        pointer;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @text;
+}
+
+element selected.normal {
+    background-color: @overlay;
+    text-color:       @bright;
+    border:           0 0 0 2px;
+    border-color:     @blue;
+}
+
+element normal.urgent,
+element selected.urgent {
+    text-color: @rose;
+}
+
+element-icon {
+    size:             22px;
+    background-color: transparent;
+}
+
+element-text {
+    vertical-align:   0.5;
+    background-color: transparent;
+    text-color:       inherit;
+}

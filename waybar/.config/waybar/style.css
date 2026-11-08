@@ -1,0 +1,183 @@
+/* ==========================================
+   WAYBAR — "quiet deep space"
+   Colors: colors.css
+
+   One style for the modules on the right:
+   a muted @subtle at rest, @text on hover,
+   neon @blue — only for the "active" state.
+   ========================================== */
+
+@import "colors.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 13px;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+/* The bar itself is transparent — only the "islands" are visible */
+window#waybar {
+    background: transparent;
+    color: @text;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background: alpha(@base, 0.82);
+    border: 1px solid alpha(@overlay, 0.9);
+    border-radius: 8px;
+    padding: 0 4px;
+}
+
+tooltip {
+    background: @base;
+    border: 1px solid @overlay;
+    border-radius: 8px;
+}
+tooltip label { color: @text; }
+
+/* ---------- Workspaces: numbers ---------- */
+#workspaces button {
+    min-width: 18px;
+    padding: 0 5px;
+    margin: 4px 1px;
+    border-radius: 6px;
+    color: @subtle;
+    background: transparent;
+    box-shadow: none;
+    font-weight: bold;
+    transition: all 320ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#workspaces button.empty  { color: @muted; }
+
+#workspaces button:hover {
+    color: @text;
+    background: alpha(@overlay, 0.6);
+}
+
+#workspaces button.active {
+    min-width: 30px;              /* the active workspace smoothly stretches into a pill */
+    color: @blue;
+    background: alpha(@blue, 0.12);
+    text-shadow: 0 0 6px alpha(@blue, 0.9);
+}
+
+#workspaces button.urgent { color: @rose; }
+
+/* ---------- Status on the right: common look ---------- */
+#window,
+#custom-mpris,
+#memory,
+#tray,
+#custom-theme,
+#custom-clipboard,
+#custom-notifications,
+#custom-ipad,
+#bluetooth,
+#network,
+#pulseaudio,
+#battery,
+#language,
+#clock,
+#custom-power {
+    padding: 0 9px;
+    margin: 4px 0;
+    border-radius: 6px;
+    color: @subtle;
+    transition: all 250ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#custom-mpris:hover,
+#memory:hover,
+#custom-theme:hover,
+#custom-clipboard:hover,
+#custom-notifications:hover,
+#custom-ipad:hover,
+#bluetooth:hover,
+#network:hover,
+#pulseaudio:hover,
+#battery:hover,
+#language:hover,
+#clock:hover {
+    color: @text;
+    background: alpha(@overlay, 0.6);
+}
+
+/* The tray is separated by a thin line */
+#tray {
+    margin-right: 4px;
+    border-right: 1px solid @overlay;
+    border-radius: 0;
+}
+#tray > .needs-attention { -gtk-icon-effect: highlight; }
+
+/* ---------- States ---------- */
+#custom-mpris.paused,
+#custom-notifications.dnd-none,
+#custom-notifications.dnd-notification,
+#custom-clipboard.empty,
+#custom-ipad.off,
+#bluetooth.off,
+#bluetooth.disabled,
+#network.disconnected,
+#pulseaudio.muted { color: @muted; }
+
+#custom-notifications.notification,
+#custom-ipad.on,
+#bluetooth.connected,
+#battery.charging,
+#battery.plugged {
+    color: @blue;
+    text-shadow: 0 0 6px alpha(@blue, 0.7);
+}
+
+#battery.warning:not(.charging),
+#custom-ipad.warning,
+#memory.warning { color: @violet; }
+
+#memory.critical {
+    color: @rose;
+    text-shadow: 0 0 6px alpha(@rose, 0.8);
+}
+#battery.critical:not(.charging) {
+    color: @rose;
+    text-shadow: 0 0 6px alpha(@rose, 0.8);
+}
+
+/* ---------- Window title (left, after the workspaces) ---------- */
+#window {
+    color: @subtle;
+    margin-left: 4px;
+    border-left: 1px solid @overlay;
+    border-radius: 0;
+}
+#window image { margin-right: 6px; }
+window#waybar.empty #window {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+#custom-mpris.playing { color: @cyan; }
+
+/* ---------- Anchor accents ---------- */
+#language { color: @violet; }
+
+#clock {
+    color: @bright;
+    font-weight: bold;
+}
+
+#custom-power {
+    margin-left: 2px;
+    padding: 0 10px 0 8px;
+}
+#custom-power:hover {
+    color: @rose;
+    background: alpha(@rose, 0.12);
+    text-shadow: 0 0 6px alpha(@rose, 0.8);
+}

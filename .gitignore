@@ -1,0 +1,39 @@
+# ---- Rendered by theme.py from palettes/ + templates/ (install.sh does it on install) ----
+hypr/.config/hypr/colors.conf
+waybar/.config/waybar/colors.css
+waybar/.config/waybar/config.jsonc
+kitty/.config/kitty/colors.conf
+rofi/.config/rofi/colors.rasi
+wlogout/.config/wlogout/colors.css
+wlogout/.config/wlogout/layout
+swaync/.config/swaync/colors.css
+swaync/.config/swaync/config.json
+zsh/.config/zsh/colors.zsh
+starship/.config/starship.toml
+gtk/.config/gtk-3.0/gtk.css
+gtk/.config/gtk-4.0/gtk.css
+qt/.config/qt5ct/colors/
+qt/.config/qt6ct/colors/
+theme/.config/theme/generated/
+sddm/cosmos/theme.conf
+# the "From wallpaper" palette — different for every image
+theme/.config/theme/palettes/wallpaper.conf
+
+# ---- Junk ----
+__pycache__/
+*.pyc
+*.bak
+*.bak-*
+
+# ---- Local ----
+.claude/
+# pacman dumps for a package audit (pacman -Qqe etc.)
+/explicit.txt
+/orphans.txt
+/aur.txt
+# logo images from an older config (config.jsonc doesn't use them)
+fastfetch/.config/fastfetch/pngs/
+
+# ---- Wallpapers: only the default one is published, the rest stay local ----
+/wallpaper/*
+!/wallpaper/spacebetr.jpg

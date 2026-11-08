@@ -1,0 +1,30 @@
+{
+    "label" : "lock",
+    "action" : "loginctl lock-session",
+    "text" : "{{t:Lock|Блокировка}}",
+    "keybind" : "l"
+}
+{
+    "label" : "logout",
+    "action" : "hyprctl dispatch exit",
+    "text" : "{{t:Log out|Выход}}",
+    "keybind" : "e"
+}
+{
+    "label" : "suspend",
+    "action" : "systemctl suspend",
+    "text" : "{{t:Sleep|Сон}}",
+    "keybind" : "s"
+}
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "{{t:Reboot|Перезагрузка}}",
+    "keybind" : "r"
+}
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "{{t:Shut down|Выключение}}",
+    "keybind" : "p"
+}

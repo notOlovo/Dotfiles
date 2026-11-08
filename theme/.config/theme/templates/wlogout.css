@@ -1,0 +1,11 @@
+/* wlogout palette: {{name}}
+   GENERATED from theme/palettes — don't edit by hand. */
+
+@define-color void     {{void}};
+@define-color base     {{base}};
+@define-color surface  {{surface}};
+@define-color overlay  {{overlay}};
+@define-color subtle   {{subtle}};
+@define-color bright   {{bright}};
+@define-color blue     {{blue}};
+@define-color rose     {{rose}};

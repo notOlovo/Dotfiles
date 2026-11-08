@@ -1,0 +1,20 @@
+/* ==========================================
+   Waybar palette: {{name}}
+   GENERATED from theme/palettes — don't edit by hand.
+   The Quickshell widgets read this same file.
+   ========================================== */
+
+@define-color void     {{void}};
+@define-color base     {{base}};
+@define-color surface  {{surface}};
+@define-color overlay  {{overlay}};
+
+@define-color muted    {{muted}};
+@define-color subtle   {{subtle}};
+@define-color text     {{text}};
+@define-color bright   {{bright}};
+
+@define-color blue     {{blue}};
+@define-color violet   {{violet}};
+@define-color cyan     {{cyan}};
+@define-color rose     {{rose}};

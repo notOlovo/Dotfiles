@@ -1,0 +1,39 @@
+/* ==========================================
+   SWAYNC — style
+   Take the stock theme and recolor it through CSS variables.
+   Colors: colors.css (generated from theme/palettes)
+   ========================================== */
+
+@import url("file:///etc/xdg/swaync/style.css");
+@import url("colors.css");
+
+:root {
+    --notification-icon-size: 48px;
+    --border-radius: 8px;
+    --notification-shadow: 0 0 0 1px var(--shadow),
+                           0 6px 18px var(--shadow);
+    --font-size-body:    13px;
+    --font-size-summary: 14px;
+}
+
+* {
+    font-family: "JetBrainsMono Nerd Font Propo";
+}
+
+.notification .summary { color: var(--bright); }
+.notification .time    { color: var(--muted); }
+
+/* Critical — a thin stripe on the left */
+.notification.critical {
+    border-left: 2px solid var(--rose);
+}
+
+.control-center {
+    border: 1px solid var(--noti-border-color);
+}
+
+.widget-title > button,
+.widget-dnd > switch:checked {
+    background: var(--blue-a);
+    color: var(--blue);
+}

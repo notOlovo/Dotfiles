@@ -1,0 +1,49 @@
+/* ==========================================
+   WLOGOUT — style
+   Colors: colors.css (generated from theme/palettes)
+   Labels: layout (rendered by theme.py in the interface language)
+   ========================================== */
+
+@import url("colors.css");
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+    background-image: none;
+    box-shadow: none;
+    transition: all 200ms ease;
+}
+
+window {
+    background-color: alpha(@void, 0.75);
+}
+
+button {
+    margin: 8px;
+    border: 1px solid @overlay;
+    border-radius: 10px;
+    background-color: alpha(@base, 0.85);
+    color: @subtle;
+    background-repeat: no-repeat;
+    background-position: center 40%;
+    background-size: 22%;
+}
+
+button:focus,
+button:hover {
+    color: @bright;
+    border-color: @blue;
+    background-color: alpha(@blue, 0.1);
+}
+
+#shutdown:focus,
+#shutdown:hover {
+    border-color: @rose;
+    background-color: alpha(@rose, 0.1);
+}
+
+#lock     { background-image: image(url("/usr/share/wlogout/icons/lock.png")); }
+#logout   { background-image: image(url("/usr/share/wlogout/icons/logout.png")); }
+#suspend  { background-image: image(url("/usr/share/wlogout/icons/suspend.png")); }
+#reboot   { background-image: image(url("/usr/share/wlogout/icons/reboot.png")); }
+#shutdown { background-image: image(url("/usr/share/wlogout/icons/shutdown.png")); }

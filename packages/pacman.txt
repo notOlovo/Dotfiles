@@ -1,0 +1,73 @@
+# Packages from the official repositories (install.sh installs them with pacman --needed)
+
+# ---- Wayland shell ----
+hyprland
+hypridle
+hyprlock
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+quickshell
+waybar
+rofi
+swaync
+swaybg
+sddm
+
+# ---- Clipboard, screenshots, brightness, media ----
+cliphist
+wl-clipboard
+grim
+slurp
+swappy
+brightnessctl
+playerctl
+libnotify
+
+# ---- Sound, network, Bluetooth, power ----
+pipewire
+pipewire-pulse
+wireplumber
+pavucontrol
+networkmanager
+nm-connection-editor
+bluez
+bluez-utils
+blueman
+upower
+power-profiles-daemon
+polkit-gnome
+udiskie
+
+# ---- Terminal and shell ----
+kitty
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+starship
+eza
+bat
+fzf
+zoxide
+fastfetch
+btop
+neovim
+
+# ---- Theme system ----
+python
+jq
+imagemagick
+stow
+adw-gtk-theme
+tela-circle-icon-theme-grey
+qt5ct
+qt6ct
+qt5-wayland
+qt6-wayland
+ttf-jetbrains-mono-nerd
+noto-fonts
+
+# ---- Apps from the binds ----
+thunar
+tumbler
+firefox
+telegram-desktop

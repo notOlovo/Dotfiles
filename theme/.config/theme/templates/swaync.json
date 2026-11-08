@@ -1,0 +1,56 @@
+{
+    "$schema": "/etc/xdg/swaync/configSchema.json",
+
+    "positionX": "right",
+    "positionY": "top",
+    "layer": "overlay",
+    "control-center-layer": "top",
+    "layer-shell": true,
+    "cssPriority": "user",
+
+    "control-center-margin-top": 8,
+    "control-center-margin-right": 10,
+    "control-center-margin-bottom": 10,
+    "control-center-width": 380,
+    "notification-window-width": 360,
+    "fit-to-screen": true,
+
+    "notification-icon-size": 48,
+    "notification-body-image-height": 120,
+    "notification-body-image-width": 220,
+    "image-visibility": "when-available",
+    "notification-inline-replies": true,
+
+    "timeout": 6,
+    "timeout-low": 3,
+    "timeout-critical": 0,
+    "transition-time": 200,
+    "keyboard-shortcuts": true,
+    "hide-on-clear": true,
+    "hide-on-action": true,
+    "relative-timestamps": true,
+    "text-empty": "{{t:Silence. Not a single signal.|Тишина. Ни одного сигнала.}}",
+
+    "scripts": {
+        "telegram-open": {
+            "desktop-entry": "^org\\.telegram\\.desktop$",
+            "run-on": "action",
+            "exec": "bash -c \"$HOME/.config/hypr/scripts/telegram.sh show\""
+        }
+    },
+
+    "widgets": ["title", "dnd", "notifications", "mpris"],
+    "widget-config": {
+        "title": {
+            "text": "{{t:Notifications|Уведомления}}",
+            "clear-all-button": true,
+            "button-text": "{{t:Clear|Очистить}}"
+        },
+        "dnd": {
+            "text": "{{t:Do not disturb|Не беспокоить}}"
+        },
+        "mpris": {
+            "image-size": 64
+        }
+    }
+}

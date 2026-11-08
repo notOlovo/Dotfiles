@@ -1,0 +1,35 @@
+# ==========================================
+#  STARSHIP — palette: {{name}}
+#  GENERATED from theme/templates/starship.toml —
+#  edit the template, not this file.
+# ==========================================
+
+add_newline = true
+format = "$directory$git_branch$git_status$cmd_duration$character"
+
+[character]
+success_symbol = "[❯](bold {{blue}})"
+error_symbol   = "[❯](bold {{rose}})"
+vimcmd_symbol  = "[❮](bold {{violet}})"
+
+[directory]
+style             = "{{text}}"
+truncation_length = 3
+truncation_symbol = "…/"
+read_only         = " ro"
+read_only_style   = "{{rose}}"
+format            = "[✦ ]({{violet}})[$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+symbol = ""
+style  = "{{subtle}}"
+format = "[on]({{muted}}) [$branch]($style) "
+
+[git_status]
+style  = "{{violet}}"
+format = "([$all_status$ahead_behind]($style) )"
+
+[cmd_duration]
+min_time = 2000
+style    = "{{muted}}"
+format   = "[· $duration]($style) "

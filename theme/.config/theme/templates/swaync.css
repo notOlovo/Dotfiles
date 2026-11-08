@@ -1,0 +1,26 @@
+/* swaync palette: {{name}}
+   GENERATED from theme/palettes — don't edit by hand. */
+
+:root {
+    --cc-bg:               rgba({{base.rgb}}, 0.88);
+    --noti-border-color:   {{overlay}};
+    --noti-bg:             {{base.rgb}};
+    --noti-bg-alpha:       0.92;
+    --noti-bg-darker:      {{surface}};
+    --noti-bg-hover:       {{overlay}};
+    --noti-bg-focus:       rgba({{blue.rgb}}, 0.12);
+    --noti-close-bg:       {{overlay}};
+    --noti-close-bg-hover: {{muted}};
+    --text-color:          {{text}};
+    --text-color-disabled: {{subtle}};
+    --bg-selected:         {{blue}};
+
+    /* Our own variables for style.css */
+    --void:    {{void}};
+    --muted:   {{muted}};
+    --bright:  {{bright}};
+    --blue:    {{blue}};
+    --blue-a:  rgba({{blue.rgb}}, 0.15);
+    --rose:    {{rose}};
+    --shadow:  rgba({{void.rgb}}, 0.7);
+}

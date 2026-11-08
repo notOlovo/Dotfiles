@@ -1,0 +1,15 @@
+configuration {
+    modi:                "drun,run,window";
+    show-icons:          true;
+    drun-display-format: "{name}";
+    display-drun:        "󰀻 ";
+    display-run:         "󰆍 ";
+    display-window:      "󰖯 ";
+    matching:            "fuzzy";
+    sort:                true;
+    hover-select:        true;
+    me-select-entry:     "";
+    me-accept-entry:     "MousePrimary";
+}
+
+@import "cosmos.rasi"

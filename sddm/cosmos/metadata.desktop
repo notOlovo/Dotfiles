@@ -1,0 +1,11 @@
+[SddmGreeterTheme]
+Name=Cosmos
+Description=A login screen in the style of the "quiet deep space" dotfiles
+Author=dotfiles
+Type=sddm-theme
+Version=1.0
+MainScript=Main.qml
+ConfigFile=theme.conf
+Theme-Id=cosmos
+Theme-API=2.0
+QtVersion=6

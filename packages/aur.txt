@@ -1,0 +1,9 @@
+# AUR packages (install.sh installs them with yay or paru, if available)
+wlogout
+waypaper
+
+# ---- Cursor from the GTK settings (optional: the default one otherwise) ----
+bibata-cursor-theme-bin
+
+# ---- iPad as a second screen (ipad-display.sh) — optional ----
+sunshine-bin

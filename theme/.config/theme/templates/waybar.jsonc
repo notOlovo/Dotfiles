@@ -1,0 +1,194 @@
+// ==========================================
+//  WAYBAR — two floating "orbits":
+//  workspaces on the left, status on the right
+//  GENERATED into waybar/.config/waybar/config.jsonc by theme.py — edit this template
+// ==========================================
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "margin-top": 8,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 0,
+    "reload_style_on_change": true,
+
+    "modules-left":   ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "custom/mpris",
+        "tray",
+        "custom/theme",
+        "custom/clipboard",
+        "custom/notifications",
+        "custom/ipad",
+        "bluetooth",
+        "network",
+        "pulseaudio",
+        "battery",
+        "hyprland/language",
+        "memory",
+        "custom/power"
+    ],
+
+    // Workspace numbers
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-scroll-up":   "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1"
+    },
+
+    "memory": {
+        "interval": 5,
+        "format": "󰍛 {used:0.1f}/{total:0.0f} GiB",
+        "states": { "warning": 70, "critical": 90 },
+        "tooltip-format": "RAM: {used:0.1f} {{t:of|из}} {total:0.1f} GiB ({percentage}%)\nSwap: {swapUsed:0.1f} {{t:of|из}} {swapTotal:0.1f} GiB",
+        "on-click": "setsid -f kitty --class btop -e btop"
+    },
+
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 45,
+        "separate-outputs": true,
+        "icon": true,
+        "icon-size": 14,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "$1",
+            "(.*) - Visual Studio Code": "$1"
+        }
+    },
+
+    // iPad as a second screen (Sunshine + a virtual monitor), refreshed by a signal
+    "custom/ipad": {
+        "exec":           "~/.config/hypr/scripts/ipad-display.sh status",
+        "return-type":    "json",
+        "interval":       10,
+        "signal":         9,
+        "on-click":       "~/.config/hypr/scripts/ipad-display.sh",
+        "on-click-right": "~/.config/hypr/scripts/ipad-display.sh pick"
+    },
+
+    // A custom module: the built-in mpris crashes Waybar 0.15
+    "custom/mpris": {
+        "exec":           "~/.config/waybar/scripts/mpris.py",
+        "return-type":    "json",
+        "escape":         true,
+        "on-click":       "playerctl play-pause",
+        "on-click-right": "playerctl next"
+    },
+
+    "custom/notifications": {
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "return-type": "json",
+        "escape": true,
+        "format": "{icon}",
+        "format-icons": {
+            "none":                   "󰂜",
+            "notification":           "󰂞",
+            "dnd-none":               "󰂛",
+            "dnd-notification":       "󰂛",
+            "inhibited-none":         "󰂜",
+            "inhibited-notification": "󰂞",
+            "dnd-inhibited-none":         "󰂛",
+            "dnd-inhibited-notification": "󰂛"
+        },
+        "on-click":       "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw"
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 8
+    },
+
+    "custom/theme": {
+        "format": "󰏘",
+        "tooltip-format": "{{t:Palette and wallpaper\nLeft click — menu · Right click — wallpaper|Палитра и обои\nЛКМ — меню · ПКМ — обои}}",
+        "on-click":       "~/.config/theme/menu.sh",
+        "on-click-right": "~/.config/theme/menu.sh wallpaper"
+    },
+
+    "custom/clipboard": {
+        "exec": "~/.config/waybar/scripts/clipboard.sh",
+        "return-type": "json",
+        "interval": 5,
+        "on-click":       "qs ipc -c desktop call popup toggle clipboard",
+        "on-click-right": "~/.config/quickshell/desktop/scripts/clipboard.sh wipe"
+    },
+
+    "bluetooth": {
+        "format":           "󰂯",
+        "format-connected": "󰂱",
+        "format-off":       "󰂲",
+        "format-disabled":  "󰂲",
+        "tooltip-format":            "Bluetooth: {status}",
+        "tooltip-format-connected":  "{device_enumerate}",
+        "tooltip-format-enumerate-connected":         "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}  ·  {device_battery_percentage}%",
+        "on-click":       "qs ipc -c desktop call popup toggle bluetooth",
+        "on-click-right": "bluetoothctl show | grep -q 'Powered: yes' && bluetoothctl power off || bluetoothctl power on"
+    },
+
+    "network": {
+        "format-wifi":         "{icon}",
+        "format-ethernet":     "󰈀",
+        "format-linked":       "󰈂",
+        "format-disconnected": "󰤭",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "tooltip-format-wifi":     "{essid}  ·  {signalStrength}%\n{ipaddr}",
+        "tooltip-format-ethernet": "{ifname}\n{ipaddr}",
+        "tooltip-format-disconnected": "{{t:Offline|Нет сети}}",
+        "on-click": "qs ipc -c desktop call popup toggle network"
+    },
+
+    "pulseaudio": {
+        "format":       "{icon} {volume}%",
+        "format-muted": "󰝟 {volume}%",
+        "format-icons": {
+            "headphone": "󰋋",
+            "default":   ["󰕿", "󰖀", "󰕾"]
+        },
+        "scroll-step": 5,
+        "tooltip-format": "{desc}",
+        "on-click":       "qs ipc -c desktop call popup toggle audio",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    "battery": {
+        "states": { "warning": 30, "critical": 15 },
+        "format":          "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged":  "󰚥 {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format": "{timeTo}  ·  {power:.1f} W"
+    },
+
+    "hyprland/language": {
+        "format":    "󰌌 {}",
+        "format-en": "EN",
+        "format-ru": "RU",
+        "on-click":  "hyprctl switchxkblayout current next"
+    },
+
+    "clock": {
+        "format":     "{:%H:%M}",
+        "format-alt": "{:%a, %d %b  %H:%M}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months":   "<b>{}</b>",
+                "weekdays": "<small>{}</small>",
+                "days":     "{}",
+                "today":    "<b><u>{}</u></b>"
+            }
+        }
+    },
+
+    "custom/power": {
+        "format": "󰐥",
+        "tooltip-format": "{{t:Power|Питание}}",
+        "on-click": "setsid -f wlogout -b 5 -T 300 -B 300 -c 12"
+    }
+}
