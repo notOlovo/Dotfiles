@@ -18,10 +18,8 @@
     "modules-right": [
         "custom/mpris",
         "tray",
-        "custom/theme",
-        "custom/clipboard",
+        "group/tools",
         "custom/notifications",
-        "custom/ipad",
         "bluetooth",
         "network",
         "pulseaudio",
@@ -100,6 +98,25 @@
     "tray": {
         "icon-size": 14,
         "spacing": 8
+    },
+
+    // Tools drawer: one icon, hover — palette/wallpapers, clipboard and the iPad slide out.
+    // The leader glows while the second screen is on (same signal as custom/ipad).
+    "group/tools": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 350,
+            "transition-left-to-right": false,
+            "children-class": "tool"
+        },
+        "modules": ["custom/tools", "custom/theme", "custom/clipboard", "custom/ipad"]
+    },
+
+    "custom/tools": {
+        "exec": "~/.config/hypr/scripts/ipad-display.sh status | jq -c '{text: \"󰀻\", class: .class, tooltip: \"{{t:Palette and wallpaper · clipboard · second screen|Палитра и обои · буфер обмена · второй экран}}\"}'",
+        "return-type": "json",
+        "interval": 10,
+        "signal": 9
     },
 
     "custom/theme": {

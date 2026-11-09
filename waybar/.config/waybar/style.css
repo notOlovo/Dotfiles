@@ -73,6 +73,7 @@ tooltip label { color: @text; }
 #custom-mpris,
 #memory,
 #tray,
+#custom-tools,
 #custom-theme,
 #custom-clipboard,
 #custom-notifications,
@@ -93,6 +94,7 @@ tooltip label { color: @text; }
 
 #custom-mpris:hover,
 #memory:hover,
+#custom-tools:hover,
 #custom-theme:hover,
 #custom-clipboard:hover,
 #custom-notifications:hover,
@@ -128,6 +130,7 @@ tooltip label { color: @text; }
 
 #custom-notifications.notification,
 #custom-ipad.on,
+#custom-tools.on,
 #bluetooth.connected,
 #battery.charging,
 #battery.plugged {
@@ -137,6 +140,7 @@ tooltip label { color: @text; }
 
 #battery.warning:not(.charging),
 #custom-ipad.warning,
+#custom-tools.warning,
 #memory.warning { color: @violet; }
 
 #memory.critical {
@@ -180,4 +184,14 @@ window#waybar.empty #window {
     color: @rose;
     background: alpha(@rose, 0.12);
     text-shadow: 0 0 6px alpha(@rose, 0.8);
+}
+
+/* ---------- Tools drawer (palette, clipboard, iPad) ---------- */
+/* While open, the drawer gets a soft background so it reads as one group */
+#group-tools {
+    transition: all 350ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+#group-tools:hover {
+    background: alpha(@overlay, 0.35);
+    border-radius: 6px;
 }
